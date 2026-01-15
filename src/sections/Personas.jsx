@@ -45,12 +45,11 @@ const Personas = () => {
     ];
 
     // State to track which cards are open. 
-    // Based on screenshot: Students is CLOSED, others are OPEN.
     const [openCards, setOpenCards] = useState({
         students: false,
-        educators: true,
-        professionals: true,
-        creators: true
+        educators: false,
+        professionals: false,
+        creators: false
     });
 
     const toggleCard = (id) => {
