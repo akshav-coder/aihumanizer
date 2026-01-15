@@ -1,48 +1,49 @@
 import React from 'react';
 
 const Testimonials = () => {
+    const baseUrl = import.meta.env.BASE_URL;
     const testimonials = [
         {
             text: "AI Humanizer helped me submit my assignments with confidence. The content sounds natural and doesn't feel AI-generated at all",
             name: "Ananya Sharma",
             role: "B.Tech Student",
-            avatar: "/images/avatar1.png" // Female Student
+            avatar: `${baseUrl}images/avatar1.png` // Female Student
         },
         {
             text: "I was worried my submissions would sound robotic. AI Humanizer made my writing clear, simple, and genuinely human.",
             name: "Rahul Mehta",
             role: "MBA Student",
-            avatar: "/images/avatar2.png" // Male Student
+            avatar: `${baseUrl}images/avatar2.png` // Male Student
         },
         {
             text: "AI Humanizer turns rough AI drafts into clear, persuasive content. It saves time without compromising quality.",
             name: "Neha Kapoor",
             role: "Marketing Consultant",
-            avatar: "/images/avatar3.png" // Female Professional
+            avatar: `${baseUrl}images/avatar3.png` // Female Professional
         },
         {
             text: "The scripts sound more natural and engaging. Audience retention improved once the content felt more human.",
             name: "Karthik V",
             role: "YouTube Script Writer",
-            avatar: "/images/avatar4.png" // Male Professional
+            avatar: `${baseUrl}images/avatar4.png` // Male Professional
         },
         {
             text: "It helped me refine my academic writing without changing my voice. Professors never questioned the authenticity.",
             name: "Snehal Iyer",
             role: "Master's Student",
-            avatar: "/images/avatar1.png" // Repeat Female Student
+            avatar: `${baseUrl}images/avatar1.png` // Repeat Female Student
         },
         {
             text: "I use AI daily for drafts, but AI Humanizer makes the final output client-ready. It feels polished and professional.",
             name: "Arjun Patel",
             role: "Business Analyst",
-            avatar: "/images/avatar2.png" // Repeat Male Student
+            avatar: `${baseUrl}images/avatar2.png` // Repeat Male Student
         },
         {
             text: "This tool bridges the gap between efficiency and authenticity. My emails and documents finally sound like me",
             name: "Vikram Rao",
             role: "Product Manager",
-            avatar: "/images/avatar4.png" // Repeat Male Professional
+            avatar: `${baseUrl}images/avatar4.png` // Repeat Male Professional
         }
     ];
 
@@ -53,7 +54,7 @@ const Testimonials = () => {
                 {/* Top Trust Indicator */}
                 <div className="flex flex-col items-center mb-16">
                     <div className="mb-4">
-                        <img src="/images/trusted_row.png" alt="Trusted Users" className="h-8 object-contain" />
+                        <img src={`${baseUrl}images/trusted_row.png`} alt="Trusted Users" className="h-8 object-contain" />
                     </div>
                     <p className="text-[#8B5E53] text-xs font-semibold uppercase tracking-wide">
                         Trusted by 100,000+ Users Across Campuses & Workspaces

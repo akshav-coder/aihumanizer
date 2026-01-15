@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { Plus, X } from 'lucide-react';
 
 const Personas = () => {
-    // Image Paths (using absolute paths as they are local artifacts)
+    // Image Paths (using relative paths with base url)
+    const baseUrl = import.meta.env.BASE_URL;
     const images = {
-        students: '/images/student.png',
-        educators: '/images/educator.png',
-        professionals: '/images/professional.png',
-        creators: '/images/creator.png',
-        avatars: '/images/avatars.png'
+        students: `${baseUrl}images/student.png`,
+        educators: `${baseUrl}images/educator.png`,
+        professionals: `${baseUrl}images/professional.png`,
+        creators: `${baseUrl}images/creator.png`,
+        avatars: `${baseUrl}images/avatars.png`
     };
 
     const cards = [
