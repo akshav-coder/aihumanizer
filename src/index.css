@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-red: #D64028;
+  /* Deep red from the image */
+  --color-salmon: #FF8F7F;
+  /* Lighter salmon for accents/buttons */
+  --color-off-white: #FDF8F6;
+  /* Very light warm white/beige */
+}
+
+/* Global styles */
+body {
+  background-color: var(--color-off-white);
+  font-family: 'Inter', sans-serif;
+}
