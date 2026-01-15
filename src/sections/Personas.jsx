@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Plus, X } from 'lucide-react';
+import React from 'react';
 
 const Personas = () => {
     // Image Paths (using relative paths with base url)
@@ -44,21 +43,6 @@ const Personas = () => {
         }
     ];
 
-    // State to track which cards are open. 
-    const [openCards, setOpenCards] = useState({
-        students: false,
-        educators: false,
-        professionals: false,
-        creators: false
-    });
-
-    const toggleCard = (id) => {
-        setOpenCards(prev => ({
-            ...prev,
-            [id]: !prev[id]
-        }));
-    };
-
     return (
         <section className="py-24 bg-[#FFFbf8]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,66 +59,32 @@ const Personas = () => {
 
                 {/* Cards Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-                    {cards.map((card) => {
-                        const isOpen = openCards[card.id];
+                    {cards.map((card) => (
+                        <div
+                            key={card.id}
+                            className="relative rounded-xl overflow-hidden h-[450px] shadow-sm group"
+                        >
+                            {/* Background Image */}
+                            <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                style={{ backgroundImage: `url('${card.image}')` }}
+                            />
 
-                        return (
-                            <div
-                                key={card.id}
-                                className={`relative rounded-xl overflow-hidden h-[450px] transition-all duration-300 shadow-sm group ${isOpen ? '' : 'cursor-pointer'
-                                    }`}
-                                onClick={() => !isOpen && toggleCard(card.id)}
-                            >
-                                {/* Background Image (Always present underneath, or visible when closed) */}
-                                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                                    style={{ backgroundImage: `url('${card.image}')` }}
-                                />
+                            {/* Static Overlay with Opacity */}
+                            {/* Using the card's active color but forcing an opacity so image shows through */}
+                            <div className={`absolute inset-0 ${card.activeColor.replace('bg-', 'bg-').replace(']', ']/80')} transition-opacity duration-300`} />
 
-                                {/* Dark Overlay for Closed State Text Readability */}
-                                {!isOpen && <div className="absolute inset-0 bg-black/30" />}
+                            {/* Fallback for Students if it has generic color in array */}
+                            {card.id === 'students' && <div className="absolute inset-0 bg-black/50" />}
 
-                                {/* CLOSED STATE UI */}
-                                <div className={`absolute inset-0 p-6 flex flex-col justify-between transition-opacity duration-300 ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-                                    <h3 className="text-white text-2xl font-bold">{card.title}</h3>
-                                    <div className="self-end">
-                                        <button
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                toggleCard(card.id);
-                                            }}
-                                            className="w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center border border-white/20 text-white hover:bg-black/70 transition-colors"
-                                        >
-                                            <Plus size={20} />
-                                        </button>
-                                    </div>
-                                </div>
-
-                                {/* OPEN STATE OVERLAY */}
-                                <div className={`absolute inset-0 p-8 flex flex-col justify-between transition-transform duration-500 ease-in-out ${card.activeColor} ${isOpen ? 'translate-y-0' : 'translate-y-full'}`}>
-
-                                    <div>
-                                        <h3 className="text-white text-2xl font-bold mb-6">{card.title}</h3>
-                                        <p className="text-white/90 text-[15px] leading-relaxed font-medium">
-                                            {card.description}
-                                        </p>
-                                    </div>
-
-                                    <div className="self-end mt-4">
-                                        <button
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                toggleCard(card.id);
-                                            }}
-                                            className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-900 hover:scale-110 transition-transform shadow-lg"
-                                        >
-                                            <X size={20} />
-                                        </button>
-                                    </div>
-                                </div>
-
+                            {/* Text Content */}
+                            <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                                <h3 className="text-white text-2xl font-bold mb-4">{card.title}</h3>
+                                <p className="text-white/95 text-[15px] leading-relaxed font-medium">
+                                    {card.description}
+                                </p>
                             </div>
-                        );
-                    })}
+                        </div>
+                    ))}
                 </div>
 
                 {/* Bottom Avatar Pill */}
