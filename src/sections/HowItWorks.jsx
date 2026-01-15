@@ -3,11 +3,11 @@ import { Upload, Copy, Download, Sparkles, FileText, Mail, File } from 'lucide-r
 
 const HowItWorks = () => {
     return (
-        <section className="py-24 bg-[#FFFbf8] overflow-hidden">
+        <section className="py-32 bg-[#FFFbf8] overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Section Header */}
-                <div className="text-center mb-24">
+                <div className="text-center mb-32">
                     <h2 className="font-mono text-3xl md:text-5xl text-gray-900 tracking-tight">
                         How does aihumanizer work ?
                     </h2>
@@ -19,7 +19,7 @@ const HowItWorks = () => {
                     <div className="absolute left-1/2 top-0 bottom-0 w-px border-l-2 border-dashed border-gray-300 transform -translate-x-1/2 hidden md:block" />
 
                     {/* STEP 1: CREATE (Blue) */}
-                    <div className="relative grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-24">
+                    <div className="relative grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-48">
                         {/* Center Number Bubble */}
                         <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-[#FFFbf8] py-4 hidden md:flex flex-col items-center z-10">
                             <span className="text-sm font-bold text-gray-500 mb-2">1</span>
@@ -67,7 +67,7 @@ const HowItWorks = () => {
 
 
                     {/* STEP 2: HUMANIZE (Pink) */}
-                    <div className="relative grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-24">
+                    <div className="relative grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-48">
                         {/* Center Number Bubble */}
                         <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-[#FFFbf8] py-4 hidden md:flex flex-col items-center z-10">
                             <span className="text-sm font-bold text-gray-500 mb-2">2</span>
